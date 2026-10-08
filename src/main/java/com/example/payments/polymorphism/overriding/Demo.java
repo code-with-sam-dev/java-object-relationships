@@ -8,13 +8,13 @@ public class Demo {
         var checkout = new Checkout();
         List<PaymentMethod> methods = List.of(
                 new Card("4242"),
-                new BankTransfer("20-00-00"),
-                new MobileMoney("07700 900123"));
+                new BankTransfer("123456789"),
+                new MobileMoney("+1 555 0100"));
 
         for (var method : methods) {
             IO.println(method.getClass().getSimpleName()
-                    + " total on 2500p: "
-                    + checkout.total(method, 2_500) + "p");
+                    + " total on 2500 cents: "
+                    + checkout.total(method, 2_500) + " cents");
         }
     }
 }

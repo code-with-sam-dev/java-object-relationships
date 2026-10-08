@@ -1,5 +1,5 @@
 $ java com.example.payments.polymorphism.strings.Demo
-CARD fee on 2500p: 57p
-BANK_TRANSFER fee on 2500p: 30p
-MOBILE_MONEY fee on 2500p: 0p
-MOBILE_MOENY fee on 2500p: 0p
+CARD fee on 2500 cents: 57 cents
+BANK_TRANSFER fee on 2500 cents: 30 cents
+MOBILE_MONEY fee on 2500 cents: 0 cents
+MOBILE_MOENY fee on 2500 cents: 0 cents

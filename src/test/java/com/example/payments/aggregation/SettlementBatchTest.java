@@ -16,7 +16,7 @@ class SettlementBatchTest {
         batch.add(first);
         batch.add(second);
 
-        assertThat(batch.totalPence()).isEqualTo(6_500);
+        assertThat(batch.totalCents()).isEqualTo(6_500);
     }
 
     @Test

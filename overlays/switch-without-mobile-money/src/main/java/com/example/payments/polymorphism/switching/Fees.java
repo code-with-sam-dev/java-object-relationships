@@ -5,9 +5,9 @@ public final class Fees {
 
     private Fees() {}
 
-    public static long fee(PaymentMethod method, long pence) {
+    public static long fee(PaymentMethod method, long cents) {
         return switch (method) {
-            case Card card -> 20 + pence * 15 / 1000;
+            case Card card -> 20 + cents * 15 / 1000;
             case BankTransfer transfer -> 30;
         };
     }

@@ -9,12 +9,12 @@ class FeeCalculatorTest {
     FeeCalculator fees = new FeeCalculator();
 
     @Test
-    void cardIsTwentyPencePlusOneAndAHalfPercent() {
+    void cardIsTwentyCentsPlusOneAndAHalfPercent() {
         assertThat(fees.fee("CARD", 2_500)).isEqualTo(57);
     }
 
     @Test
-    void bankTransferIsAFlatThirtyPence() {
+    void bankTransferIsAFlatThirtyCents() {
         assertThat(fees.fee("BANK_TRANSFER", 2_500))
                 .isEqualTo(30);
     }

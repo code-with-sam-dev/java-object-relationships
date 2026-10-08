@@ -1,4 +1,4 @@
 $ java com.example.payments.polymorphism.overriding.Demo
-Card total on 2500p: 2557p
-BankTransfer total on 2500p: 2530p
-MobileMoney total on 2500p: 2550p
+Card total on 2500 cents: 2557 cents
+BankTransfer total on 2500 cents: 2530 cents
+MobileMoney total on 2500 cents: 2550 cents

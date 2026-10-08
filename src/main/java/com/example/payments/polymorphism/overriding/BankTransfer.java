@@ -1,10 +1,10 @@
 package com.example.payments.polymorphism.overriding;
 
-public record BankTransfer(String sortCode)
+public record BankTransfer(String routingNumber)
         implements PaymentMethod {
 
     @Override
-    public long fee(long pence) {
+    public long fee(long cents) {
         return 30;
     }
 }

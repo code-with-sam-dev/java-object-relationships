@@ -8,15 +8,15 @@ public final class SharedHistoryPayment {
 
     private final String id;
     private final Customer customer;
-    private final long pence;
+    private final long cents;
     private final PaymentHistory history;
 
     public SharedHistoryPayment(String id, Customer customer,
-            long pence,
+            long cents,
             PaymentHistory history) {
         this.id = id;
         this.customer = customer;
-        this.pence = pence;
+        this.cents = cents;
         this.history = history;
     }
 

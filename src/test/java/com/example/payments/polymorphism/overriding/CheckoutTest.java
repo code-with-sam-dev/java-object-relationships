@@ -13,10 +13,10 @@ class CheckoutTest {
         assertThat(checkout.total(new Card("4242"), 2_500))
                 .isEqualTo(2_557);
         assertThat(checkout.total(
-                new BankTransfer("20-00-00"), 2_500))
+                new BankTransfer("123456789"), 2_500))
                 .isEqualTo(2_530);
         assertThat(checkout.total(
-                new MobileMoney("07700 900123"), 2_500))
+                new MobileMoney("+1 555 0100"), 2_500))
                 .isEqualTo(2_550);
     }
 
@@ -24,7 +24,7 @@ class CheckoutTest {
     void checkoutNeverAsksWhichMethodItHas() {
         PaymentMethod method = new Card("4242");
         long card = checkout.total(method, 2_500);
-        method = new MobileMoney("07700 900123");
+        method = new MobileMoney("+1 555 0100");
         long mobile = checkout.total(method, 2_500);
 
         assertThat(card).isEqualTo(2_557);

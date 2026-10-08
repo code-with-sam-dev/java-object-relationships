@@ -19,8 +19,8 @@ polymorphism.overriding.CheckoutTest: 2 tests, 0 failures, 0 errors
   ok   checkoutNeverAsksWhichMethodItHas
   ok   eachMethodAddsItsOwnFee
 polymorphism.strings.FeeCalculatorTest: 4 tests, 0 failures, 0 errors
-  ok   bankTransferIsAFlatThirtyPence
-  ok   cardIsTwentyPencePlusOneAndAHalfPercent
+  ok   cardIsTwentyCentsPlusOneAndAHalfPercent
+  ok   bankTransferIsAFlatThirtyCents
   ok   aTypoCompilesAndCostsNothing
   ok   anUnknownMethodQuietlyCostsNothing
 polymorphism.switching.FeesTest: 1 tests, 0 failures, 0 errors

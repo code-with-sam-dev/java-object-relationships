@@ -11,18 +11,20 @@ public class Demo {
         monday.add(first);
         monday.add(second);
         IO.println("MON: " + monday.payments().size()
-                + " payments, " + monday.totalPence() + "p");
+                + " payments, "
+                + monday.totalCents() + " cents");
 
         monday.reject();
         IO.println("MON rejected: " + monday.rejected());
         IO.println("P-1 unchanged: " + first.id() + ", "
-                + first.pence() + "p");
+                + first.cents() + " cents");
 
         var retry = new SettlementBatch("MON-RETRY");
         retry.add(first);
         retry.add(second);
         IO.println("MON-RETRY: " + retry.payments().size()
-                + " payments, " + retry.totalPence() + "p");
+                + " payments, "
+                + retry.totalCents() + " cents");
         IO.println("same P-1 object in both batches: "
                 + (monday.payments().getFirst()
                         == retry.payments().getFirst()));

@@ -27,9 +27,9 @@ public final class SettlementBatch {
         return rejected;
     }
 
-    public long totalPence() {
+    public long totalCents() {
         return payments.stream()
-                .mapToLong(Payment::pence)
+                .mapToLong(Payment::cents)
                 .sum();
     }
 

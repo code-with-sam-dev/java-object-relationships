@@ -8,15 +8,15 @@ public final class Payment {
 
     private final String id;
     private final Customer customer;
-    private final long pence;
+    private final long cents;
     private final PaymentHistory history =
             new PaymentHistory();
 
     public Payment(String id, Customer customer,
-            long pence) {
+            long cents) {
         this.id = id;
         this.customer = customer;
-        this.pence = pence;
+        this.cents = cents;
     }
 
     public void authorise() {

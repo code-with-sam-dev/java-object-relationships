@@ -1,6 +1,6 @@
 $ java com.example.payments.aggregation.Demo
-MON: 2 payments, 6500p
+MON: 2 payments, 6500 cents
 MON rejected: true
-P-1 unchanged: P-1, 2500p
-MON-RETRY: 2 payments, 6500p
+P-1 unchanged: P-1, 2500 cents
+MON-RETRY: 2 payments, 6500 cents
 same P-1 object in both batches: true

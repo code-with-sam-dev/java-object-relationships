@@ -33,7 +33,7 @@ or, with no JDK installed:
 | `aggregation` | Aggregation | `SettlementBatch` groups payments that existed before it and can move to another batch |
 | `composition` | Composition | `Payment` creates its own `PaymentHistory` and changes it only through `authorise()` and `capture()`. `SharedHistoryPayment` takes one from the caller, so two payments can share it and one changes the other. `PaymentStateException` is inheritance used well: exception specialisation |
 | `inheritance` | Inheritance, and delegation instead | `CountingLedger extends Ledger` counts three payments as six. `CountingLog` holds a `PaymentLog` and forwards to it, counting a call only after the log accepted it |
-| `polymorphism.strings` | None yet | One method branches on a string; an unknown method quietly costs 0p |
+| `polymorphism.strings` | None yet | One method branches on a string; an unknown method quietly costs 0 cents |
 | `polymorphism.overriding` | Polymorphism by overriding | Each `PaymentMethod` says its own fee and `Checkout` never asks which one it has; the interface contract refuses a new method without a fee |
 | `polymorphism.switching` | The alternative design | Payment methods as a sealed, data only hierarchy and every fee rule in one `switch`; the compiler refuses a missing case |
 
@@ -66,7 +66,7 @@ when nothing can reach it, which a diagram does not predict.
 
 ## Simplifications
 
-Amounts are whole pence in a `long`, and fees round down. A real
+Amounts are whole cents in a `long`, and fees round down. A real
 payment system uses a money type with a currency and an agreed
 rounding rule, and keeps the status history in a database. The fees
 are made up for the example.

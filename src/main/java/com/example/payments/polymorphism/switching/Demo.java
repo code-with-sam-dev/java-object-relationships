@@ -7,13 +7,13 @@ public class Demo {
     void main() {
         List<PaymentMethod> methods = List.of(
                 new Card("4242"),
-                new BankTransfer("20-00-00"),
-                new MobileMoney("07700 900123"));
+                new BankTransfer("123456789"),
+                new MobileMoney("+1 555 0100"));
 
         for (var method : methods) {
             IO.println(method.getClass().getSimpleName()
-                    + " fee on 2500p: "
-                    + Fees.fee(method, 2_500) + "p");
+                    + " fee on 2500 cents: "
+                    + Fees.fee(method, 2_500) + " cents");
         }
     }
 }

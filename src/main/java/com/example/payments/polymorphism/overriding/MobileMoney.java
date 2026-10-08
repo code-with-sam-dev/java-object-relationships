@@ -4,7 +4,7 @@ public record MobileMoney(String phone)
         implements PaymentMethod {
 
     @Override
-    public long fee(long pence) {
-        return pence * 2 / 100;
+    public long fee(long cents) {
+        return cents * 2 / 100;
     }
 }
