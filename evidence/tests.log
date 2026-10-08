@@ -1,23 +1,27 @@
 $ ./mvnw test
-aggregation.SettlementBatchTest: 2 tests, 0 failures, 0 errors
-  ok   theSamePaymentsCanMoveToAnotherBatch
+aggregation.SettlementBatchTest: 3 tests, 0 failures, 0 errors
+  ok   rejectingABatchLeavesItsPaymentsUntouched
+  ok   theSamePaymentsGoIntoTheRetry
   ok   totalsThePaymentsItWasGiven
 association.PaymentTest: 1 tests, 0 failures, 0 errors
   ok   twoPaymentsShareOneCustomer
 composition.PaymentTest: 5 tests, 0 failures, 0 errors
   ok   movesThroughItsStatuses
-  ok   theHistoryItHandsOutIsACopy
+  ok   eachPaymentHasItsOwnHistory
+  ok   aSharedHistoryLetsOnePaymentChangeAnother
   ok   cannotCaptureBeforeItIsAuthorised
-  ok   theCallersListCannotChangeAPayment
-  ok   theLeakyVersionCanBeChangedFromOutside
-inheritance.CountingTest: 2 tests, 0 failures, 0 errors
+  ok   theHistoryItHandsOutCannotBeChanged
+inheritance.CountingTest: 3 tests, 0 failures, 0 errors
+  ok   theWrapperDoesNotCountAPaymentTheLogRefused
   ok   theWrapperCountsEachPaymentOnce
   ok   theSubclassCountsEveryPaymentTwice
-polymorphism.overriding.CheckoutTest: 1 tests, 0 failures, 0 errors
+polymorphism.overriding.CheckoutTest: 2 tests, 0 failures, 0 errors
+  ok   checkoutNeverAsksWhichMethodItHas
   ok   eachMethodAddsItsOwnFee
-polymorphism.strings.FeeCalculatorTest: 3 tests, 0 failures, 0 errors
+polymorphism.strings.FeeCalculatorTest: 4 tests, 0 failures, 0 errors
   ok   bankTransferIsAFlatThirtyPence
   ok   cardIsTwentyPencePlusOneAndAHalfPercent
+  ok   aTypoCompilesAndCostsNothing
   ok   anUnknownMethodQuietlyCostsNothing
 polymorphism.switching.FeesTest: 1 tests, 0 failures, 0 errors
   ok   theSwitchGivesTheSameFeesAsTheOverrides

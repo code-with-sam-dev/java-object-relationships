@@ -1,0 +1,4 @@
+$ java com.example.payments.composition.ExceptionDemo
+caught by: catch (IllegalStateException e)
+class:     PaymentStateException
+message:   P-1 is CREATED, not AUTHORISED

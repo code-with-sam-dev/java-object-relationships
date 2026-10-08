@@ -2,7 +2,8 @@ package com.example.payments.inheritance;
 
 import java.util.List;
 
-// Composition: holds a PaymentLog and forwards to it.
+// Delegation: holds a PaymentLog and forwards to it,
+// counting a call only once the log has accepted it.
 public final class CountingLog implements PaymentLog {
 
     private final PaymentLog log;
@@ -14,14 +15,14 @@ public final class CountingLog implements PaymentLog {
 
     @Override
     public void record(Payment payment) {
-        recorded++;
         log.record(payment);
+        recorded++;
     }
 
     @Override
     public void recordAll(List<Payment> payments) {
-        recorded += payments.size();
         log.recordAll(payments);
+        recorded += payments.size();
     }
 
     @Override

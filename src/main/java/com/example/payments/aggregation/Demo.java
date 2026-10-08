@@ -13,15 +13,18 @@ public class Demo {
         IO.println("MON: " + monday.payments().size()
                 + " payments, " + monday.totalPence() + "p");
 
-        IO.println("the bank rejects MON");
+        monday.reject();
+        IO.println("MON rejected: " + monday.rejected());
+        IO.println("P-1 unchanged: " + first.id() + ", "
+                + first.pence() + "p");
 
-        var tuesday = new SettlementBatch("TUE");
-        tuesday.add(first);
-        tuesday.add(second);
-        IO.println("TUE: " + tuesday.payments().size()
-                + " payments, " + tuesday.totalPence() + "p");
+        var retry = new SettlementBatch("MON-RETRY");
+        retry.add(first);
+        retry.add(second);
+        IO.println("MON-RETRY: " + retry.payments().size()
+                + " payments, " + retry.totalPence() + "p");
         IO.println("same P-1 object in both batches: "
                 + (monday.payments().getFirst()
-                        == tuesday.payments().getFirst()));
+                        == retry.payments().getFirst()));
     }
 }

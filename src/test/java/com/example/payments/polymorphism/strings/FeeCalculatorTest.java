@@ -23,4 +23,9 @@ class FeeCalculatorTest {
     void anUnknownMethodQuietlyCostsNothing() {
         assertThat(fees.fee("MOBILE_MONEY", 2_500)).isZero();
     }
+
+    @Test
+    void aTypoCompilesAndCostsNothing() {
+        assertThat(fees.fee("MOBILE_MOENY", 2_500)).isZero();
+    }
 }

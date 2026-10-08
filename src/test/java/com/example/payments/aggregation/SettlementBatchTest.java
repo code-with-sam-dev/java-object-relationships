@@ -20,13 +20,25 @@ class SettlementBatchTest {
     }
 
     @Test
-    void theSamePaymentsCanMoveToAnotherBatch() {
+    void rejectingABatchLeavesItsPaymentsUntouched() {
         var monday = new SettlementBatch("MON");
         monday.add(first);
-        var tuesday = new SettlementBatch("TUE");
-        tuesday.add(first);
+        monday.reject();
 
-        assertThat(tuesday.payments().getFirst())
+        assertThat(monday.rejected()).isTrue();
+        assertThat(first).isEqualTo(
+                new Payment("P-1", sarah, 2_500));
+    }
+
+    @Test
+    void theSamePaymentsGoIntoTheRetry() {
+        var monday = new SettlementBatch("MON");
+        monday.add(first);
+        monday.reject();
+        var retry = new SettlementBatch("MON-RETRY");
+        retry.add(first);
+
+        assertThat(retry.payments().getFirst())
                 .isSameAs(monday.payments().getFirst());
     }
 }

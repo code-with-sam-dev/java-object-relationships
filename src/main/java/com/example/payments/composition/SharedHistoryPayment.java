@@ -1,19 +1,19 @@
 package com.example.payments.composition;
 
-import java.util.ArrayList;
 import java.util.List;
 
-// Looks the same as Payment, but keeps the caller's list.
-// Whoever passed it in can still change it.
-public final class LeakyPayment {
+// Takes its history from the caller, so two payments can
+// be given the same one.
+public final class SharedHistoryPayment {
 
     private final String id;
     private final Customer customer;
     private final long pence;
-    private final List<StatusChange> history;
+    private final PaymentHistory history;
 
-    public LeakyPayment(String id, Customer customer,
-            long pence, List<StatusChange> history) {
+    public SharedHistoryPayment(String id, Customer customer,
+            long pence,
+            PaymentHistory history) {
         this.id = id;
         this.customer = customer;
         this.pence = pence;
@@ -29,18 +29,16 @@ public final class LeakyPayment {
     }
 
     public Status status() {
-        return history.isEmpty()
-                ? Status.CREATED
-                : history.getLast().to();
+        return history.current();
     }
 
     public List<StatusChange> history() {
-        return List.copyOf(history);
+        return history.entries();
     }
 
     private void move(Status from, Status to) {
         if (status() != from) {
-            throw new IllegalStateException(
+            throw new PaymentStateException(
                     id + " is " + status() + ", not " + from);
         }
         history.add(new StatusChange(from, to));

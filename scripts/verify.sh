@@ -75,11 +75,18 @@ overlay() {
   rm -rf "$scratch"
 }
 
+exception_demo() {
+  local log=$EV/exception.log; : > "$log"
+  echo "\$ java com.example.payments.composition.ExceptionDemo" >> "$log"
+  "$JAVA" -cp target/classes com.example.payments.composition.ExceptionDemo >> "$log" 2>&1
+}
+
 java_version
 tests
 demo association association
 demo aggregation aggregation
 demo composition composition
+exception_demo
 demo inheritance inheritance
 demo fees-strings polymorphism.strings
 demo fees-overriding polymorphism.overriding

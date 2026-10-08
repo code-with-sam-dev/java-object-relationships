@@ -9,6 +9,7 @@ public final class SettlementBatch {
 
     private final String id;
     private final List<Payment> payments = new ArrayList<>();
+    private boolean rejected;
 
     public SettlementBatch(String id) {
         this.id = id;
@@ -16,6 +17,14 @@ public final class SettlementBatch {
 
     public void add(Payment payment) {
         payments.add(payment);
+    }
+
+    public void reject() {
+        rejected = true;
+    }
+
+    public boolean rejected() {
+        return rejected;
     }
 
     public long totalPence() {

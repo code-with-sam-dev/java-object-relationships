@@ -1,29 +1,23 @@
 package com.example.payments.composition;
 
-import java.util.ArrayList;
-
 public class Demo {
 
     void main() {
         var sarah = new Customer("C-1", "Sarah Thompson");
 
-        var leakyHistory = new ArrayList<StatusChange>();
-        var leaky = new LeakyPayment("P-1", sarah, 2_500,
-                leakyHistory);
-        leaky.authorise();
+        var shared = new PaymentHistory();
+        var p1 = new SharedHistoryPayment("P-1", sarah, 2_500,
+                shared);
+        var p2 = new SharedHistoryPayment("P-2", sarah, 4_000,
+                shared);
+        p1.authorise();
+        IO.println("SharedHistoryPayment P-1: " + p1.status());
+        IO.println("SharedHistoryPayment P-2: " + p2.status());
 
-        var ownedHistory = new ArrayList<StatusChange>();
-        var owned = new Payment("P-2", sarah, 2_500,
-                ownedHistory);
-        owned.authorise();
-
-        // Nobody calls capture(). The caller edits its list.
-        var fake = new StatusChange(Status.AUTHORISED,
-                Status.CAPTURED);
-        leakyHistory.add(fake);
-        ownedHistory.add(fake);
-
-        IO.println("LeakyPayment status: " + leaky.status());
-        IO.println("Payment status:      " + owned.status());
+        var p3 = new Payment("P-3", sarah, 2_500);
+        var p4 = new Payment("P-4", sarah, 4_000);
+        p3.authorise();
+        IO.println("Payment P-3: " + p3.status());
+        IO.println("Payment P-4: " + p4.status());
     }
 }

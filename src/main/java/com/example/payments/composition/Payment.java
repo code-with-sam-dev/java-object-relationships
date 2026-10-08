@@ -1,23 +1,22 @@
 package com.example.payments.composition;
 
-import java.util.ArrayList;
 import java.util.List;
 
-// Owns its history: it copies what it is given into its own
-// list, and only it can change it. Nobody else holds that list.
+// Owns its history: it creates it, changes it only through
+// authorise() and capture(), and never hands it out.
 public final class Payment {
 
     private final String id;
     private final Customer customer;
     private final long pence;
-    private final List<StatusChange> history;
+    private final PaymentHistory history =
+            new PaymentHistory();
 
     public Payment(String id, Customer customer,
-            long pence, List<StatusChange> history) {
+            long pence) {
         this.id = id;
         this.customer = customer;
         this.pence = pence;
-        this.history = new ArrayList<>(history);
     }
 
     public void authorise() {
@@ -29,18 +28,16 @@ public final class Payment {
     }
 
     public Status status() {
-        return history.isEmpty()
-                ? Status.CREATED
-                : history.getLast().to();
+        return history.current();
     }
 
     public List<StatusChange> history() {
-        return List.copyOf(history);
+        return history.entries();
     }
 
     private void move(Status from, Status to) {
         if (status() != from) {
-            throw new IllegalStateException(
+            throw new PaymentStateException(
                     id + " is " + status() + ", not " + from);
         }
         history.add(new StatusChange(from, to));

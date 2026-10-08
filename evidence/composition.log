@@ -1,3 +1,5 @@
 $ java com.example.payments.composition.Demo
-LeakyPayment status: CAPTURED
-Payment status:      AUTHORISED
+SharedHistoryPayment P-1: AUTHORISED
+SharedHistoryPayment P-2: AUTHORISED
+Payment P-3: AUTHORISED
+Payment P-4: CREATED
