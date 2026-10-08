@@ -1,0 +1,8 @@
+target/
+.idea/
+*.iml
+.DS_Store
+/run/
+
+# The machine-wide gitignore excludes scripts/; this repository needs them.
+!scripts/

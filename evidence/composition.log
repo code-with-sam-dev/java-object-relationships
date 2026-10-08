@@ -1,0 +1,3 @@
+$ java com.example.payments.composition.Demo
+LeakyPayment status: CAPTURED
+Payment status:      AUTHORISED

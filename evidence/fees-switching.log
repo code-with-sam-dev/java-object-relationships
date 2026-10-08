@@ -1,0 +1,4 @@
+$ java com.example.payments.polymorphism.switching.Demo
+Card fee on 2500p: 57p
+BankTransfer fee on 2500p: 30p
+MobileMoney fee on 2500p: 50p

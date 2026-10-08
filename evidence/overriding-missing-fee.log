@@ -1,0 +1,4 @@
+# overlay: mobile-money-without-fee
+$ ./mvnw compile
+src/main/java/com/example/payments/polymorphism/overriding/MobileMoney.java:[3,8] com.example.payments.polymorphism.overriding.MobileMoney is not abstract and does not override abstract method fee(long) in com.example.payments.polymorphism.overriding.PaymentMethod
+BUILD FAILURE

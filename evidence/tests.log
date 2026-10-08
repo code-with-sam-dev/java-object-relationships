@@ -1,0 +1,24 @@
+$ ./mvnw test
+aggregation.SettlementBatchTest: 2 tests, 0 failures, 0 errors
+  ok   theSamePaymentsCanMoveToAnotherBatch
+  ok   totalsThePaymentsItWasGiven
+association.PaymentTest: 1 tests, 0 failures, 0 errors
+  ok   twoPaymentsShareOneCustomer
+composition.PaymentTest: 5 tests, 0 failures, 0 errors
+  ok   movesThroughItsStatuses
+  ok   theHistoryItHandsOutIsACopy
+  ok   cannotCaptureBeforeItIsAuthorised
+  ok   theCallersListCannotChangeAPayment
+  ok   theLeakyVersionCanBeChangedFromOutside
+inheritance.CountingTest: 2 tests, 0 failures, 0 errors
+  ok   theWrapperCountsEachPaymentOnce
+  ok   theSubclassCountsEveryPaymentTwice
+polymorphism.overriding.CheckoutTest: 1 tests, 0 failures, 0 errors
+  ok   eachMethodAddsItsOwnFee
+polymorphism.strings.FeeCalculatorTest: 3 tests, 0 failures, 0 errors
+  ok   bankTransferIsAFlatThirtyPence
+  ok   cardIsTwentyPencePlusOneAndAHalfPercent
+  ok   anUnknownMethodQuietlyCostsNothing
+polymorphism.switching.FeesTest: 1 tests, 0 failures, 0 errors
+  ok   theSwitchGivesTheSameFeesAsTheOverrides
+exit 0

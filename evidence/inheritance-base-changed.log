@@ -1,0 +1,7 @@
+# overlay: count-in-record-only
+# overlay: ledger-uses-addall
+$ ./mvnw compile
+BUILD SUCCESS
+$ java com.example.payments.inheritance.Demo
+CountingLedger: size 3, recorded 0
+CountingLog:    size 3, recorded 3

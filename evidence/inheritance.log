@@ -1,0 +1,3 @@
+$ java com.example.payments.inheritance.Demo
+CountingLedger: size 3, recorded 6
+CountingLog:    size 3, recorded 3

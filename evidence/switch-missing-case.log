@@ -1,0 +1,4 @@
+# overlay: switch-without-mobile-money
+$ ./mvnw compile
+src/main/java/com/example/payments/polymorphism/switching/Fees.java:[9,16] the switch expression does not cover all possible input values
+BUILD FAILURE

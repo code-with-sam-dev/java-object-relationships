@@ -1,0 +1,4 @@
+$ java com.example.payments.association.Demo
+P-1 customer: Sarah Thompson
+P-2 customer: Sarah Thompson
+same Customer object: true
